@@ -18,7 +18,7 @@ import com.webide.app.domain.model.FileType
 fun CodeEditor(
     code: String,
     onCodeChange: (String) -> Unit,
-    fileType: FileType,
+    @Suppress("UNUSED_PARAMETER") fileType: FileType,
     modifier: Modifier = Modifier
 ) {
     val customTextSelectionColors = TextSelectionColors(

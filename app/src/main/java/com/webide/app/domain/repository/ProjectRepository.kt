@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fileDao.deleteFile(file)
     }
 
-    suspend fun exportProjectToZip(project: Project, files: List<ProjectFile>, zipFile: File) = 
+    suspend fun exportProjectToZip(_project: Project, files: List<ProjectFile>, zipFile: File) = 
         withContext(Dispatchers.IO) {
             ZipOutputStream(zipFile.outputStream()).use { zipOut ->
                 files.forEach { file ->

@@ -8,7 +8,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Save
@@ -56,7 +56,7 @@ fun EditorScreen(
                 title = { Text(project.name) },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "返回")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "返回")
                     }
                 },
                 actions = {
@@ -98,7 +98,7 @@ fun EditorScreen(
                     .width(200.dp)
             )
             
-            Divider(modifier = Modifier.fillMaxHeight().width(1.dp))
+            HorizontalDivider(modifier = Modifier.fillMaxHeight().width(1.dp))
             
             selectedFile?.let { file ->
                 CodeEditor(

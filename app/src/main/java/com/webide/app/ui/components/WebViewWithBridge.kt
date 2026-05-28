@@ -10,21 +10,18 @@ import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.os.VibratorManager
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.webide.app.domain.model.ProjectFile
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 
 class WebAppInterface(
     private val context: Context,
@@ -40,7 +37,14 @@ class WebAppInterface(
 
     @JavascriptInterface
     fun vibrate(duration: Long) {
-        val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val vibratorManager = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+            vibratorManager.defaultVibrator
+        } else {
+            @Suppress("DEPRECATION")
+            context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        }
+        
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             vibrator.vibrate(VibrationEffect.createOneShot(duration, VibrationEffect.DEFAULT_AMPLITUDE))
         } else {
@@ -60,7 +64,7 @@ class WebAppInterface(
     }
 
     @JavascriptInterface
-    fun getLocation(callbackId: String) {
+    fun getLocation(@Suppress("UNUSED_PARAMETER") callbackId: String) {
         locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         
         if (ContextCompat.checkSelfPermission(
@@ -76,6 +80,7 @@ class WebAppInterface(
                     locationManager?.removeUpdates(this)
                 }
 
+                @Deprecated("Deprecated in Java")
                 override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
                 override fun onProviderEnabled(provider: String) {}
                 override fun onProviderDisabled(provider: String) {}
@@ -142,7 +147,6 @@ fun WebViewPreview(
     modifier: Modifier = Modifier,
     onLog: (String) -> Unit = {}
 ) {
-    val context = LocalContext.current
     val logs = remember { mutableStateListOf<String>() }
     
     val indexFile = files.find { it.name == "index.html" }

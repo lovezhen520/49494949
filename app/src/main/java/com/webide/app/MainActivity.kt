@@ -88,17 +88,17 @@ class MainViewModel(
     fun saveFile(file: ProjectFile) {
         viewModelScope.launch {
             repository.saveFile(file)
-            _currentProject.value?.let { project ->
-                repository.updateProject(project.copy(updatedAt = System.currentTimeMillis()))
+            _currentProject.value?.let { 
+                repository.updateProject(it.copy(updatedAt = System.currentTimeMillis()))
             }
         }
     }
 
     fun createFile(name: String, type: FileType) {
         viewModelScope.launch {
-            _currentProject.value?.let { project ->
+            _currentProject.value?.let { 
                 val file = ProjectFile(
-                    projectId = project.id,
+                    projectId = it.id,
                     name = name,
                     path = name,
                     type = type,
@@ -115,11 +115,11 @@ class MainViewModel(
         }
     }
 
-    suspend fun exportProject(project: Project, files: List<ProjectFile>): File? {
+    suspend fun exportProject(_project: Project, files: List<ProjectFile>): File? {
         val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-        val zipFile = File(downloadsDir, "${project.name}.zip")
+        val zipFile = File(downloadsDir, "${_project.name}.zip")
         return try {
-            repository.exportProjectToZip(project, files, zipFile)
+            repository.exportProjectToZip(_project, files, zipFile)
             zipFile
         } catch (e: Exception) {
             e.printStackTrace()
@@ -245,7 +245,6 @@ fun MainApp(viewModel: MainViewModel) {
             )
         }
         is Screen.Editor -> {
-            val editorScreen = currentScreen as Screen.Editor
             currentProject?.let { project ->
                 EditorScreen(
                     project = project,
