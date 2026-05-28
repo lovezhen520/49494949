@@ -56,8 +56,10 @@ class MainViewModel(
 
     fun navigateTo(screen: Screen) {
         _currentScreen.value = screen
-        if (screen is Screen.Editor || screen is Screen.Preview) {
-            loadProject(screen.projectId)
+        when (screen) {
+            is Screen.Editor -> loadProject(screen.projectId)
+            is Screen.Preview -> loadProject(screen.projectId)
+            Screen.Home -> { }
         }
     }
 
@@ -243,6 +245,7 @@ fun MainApp(viewModel: MainViewModel) {
             )
         }
         is Screen.Editor -> {
+            val editorScreen = currentScreen as Screen.Editor
             currentProject?.let { project ->
                 EditorScreen(
                     project = project,
@@ -269,10 +272,11 @@ fun MainApp(viewModel: MainViewModel) {
             }
         }
         is Screen.Preview -> {
+            val previewScreen = currentScreen as Screen.Preview
             PreviewScreen(
                 files = currentFiles,
                 onBackClick = {
-                    viewModel.navigateTo(Screen.Editor((currentScreen as Screen.Preview).projectId))
+                    viewModel.navigateTo(Screen.Editor(previewScreen.projectId))
                 }
             )
         }

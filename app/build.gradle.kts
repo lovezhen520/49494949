@@ -20,11 +20,6 @@ android {
             useSupportLibrary = true
         }
     }
-    
-    // Termux: Disable AAPT2 optimizations
-    aaptOptions {
-        additionalParameters("--no-version-vectors")
-    }
 
     buildTypes {
         release {
