@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.WebIDE" parent="android:Theme.Material.Light.NoActionBar" />
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.WebIDE" parent="Theme.Material3.DynamicColor.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue_600</item>
+        <item name="colorPrimaryDark">@color/blue_700</item>
+        <item name="colorPrimaryContainer">@color/blue_100</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnPrimaryContainer">@color/blue_900</item>
+        <item name="colorSecondary">@color/cyan_500</item>
+        <item name="colorSecondaryContainer">@color/cyan_100</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondaryContainer">@color/cyan_900</item>
+        <item name="colorTertiary">@color/teal_500</item>
+        <item name="colorTertiaryContainer">@color/teal_100</item>
+        <item name="colorOnTertiary">@color/white</item>
+        <item name="colorOnTertiaryContainer">@color/teal_900</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorSurfaceVariant">@color/gray_100</item>
+        <item name="colorOnSurface">@color/gray_900</item>
+        <item name="colorOnSurfaceVariant">@color/gray_600</item>
+        <item name="colorError">@color/red_600</item>
+        <item name="colorErrorContainer">@color/red_100</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorOnErrorContainer">@color/red_900</item>
+        <item name="colorOutline">@color/gray_400</item>
+        <item name="colorOutlineVariant">@color/gray_300</item>
+        <item name="colorSurfaceInverse">@color/gray_900</item>
+        <item name="colorOnSurfaceInverse">@color/white</item>
+        <item name="android:statusBarColor">@color/blue_600</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Theme.WebIDE.Dark" parent="Theme.Material3.DynamicColor.Dark.NoActionBar">
+        <item name="colorPrimary">@color/blue_400</item>
+        <item name="colorPrimaryDark">@color/blue_500</item>
+        <item name="colorPrimaryContainer">@color/blue_900</item>
+        <item name="colorOnPrimary">@color/blue_900</item>
+        <item name="colorOnPrimaryContainer">@color/blue_100</item>
+        <item name="colorSecondary">@color/cyan_400</item>
+        <item name="colorSecondaryContainer">@color/cyan_900</item>
+        <item name="colorOnSecondary">@color/cyan_900</item>
+        <item name="colorOnSecondaryContainer">@color/cyan_100</item>
+        <item name="colorTertiary">@color/teal_400</item>
+        <item name="colorTertiaryContainer">@color/teal_900</item>
+        <item name="colorOnTertiary">@color/teal_900</item>
+        <item name="colorOnTertiaryContainer">@color/teal_100</item>
+        <item name="colorSurface">@color/gray_900</item>
+        <item name="colorSurfaceVariant">@color/gray_800</item>
+        <item name="colorOnSurface">@color/gray_100</item>
+        <item name="colorOnSurfaceVariant">@color/gray_400</item>
+        <item name="colorError">@color/red_500</item>
+        <item name="colorErrorContainer">@color/red_900</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorOnErrorContainer">@color/red_200</item>
+        <item name="colorOutline">@color/gray_600</item>
+        <item name="colorOutlineVariant">@color/gray_700</item>
+        <item name="colorSurfaceInverse">@color/gray_100</item>
+        <item name="colorOnSurfaceInverse">@color/gray_900</item>
+        <item name="android:statusBarColor">@color/gray_900</item>
+        <item name="android:navigationBarColor">@color/gray_900</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
 </resources>

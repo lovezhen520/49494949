@@ -1,0 +1,58 @@
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    
+    <color name="blue_50">#FFEFF6FF</color>
+    <color name="blue_100">#FFDBEAFE</color>
+    <color name="blue_200">#FFBFDBFE</color>
+    <color name="blue_300">#FF93C5FD</color>
+    <color name="blue_400">#FF60A5FA</color>
+    <color name="blue_500">#FF3B82F6</color>
+    <color name="blue_600">#FF2563EB</color>
+    <color name="blue_700">#FF1D4ED8</color>
+    <color name="blue_800">#FF1E40AF</color>
+    <color name="blue_900">#FF1E3A8A</color>
+    
+    <color name="cyan_50">#FFECFEFF</color>
+    <color name="cyan_100">#FFCFFAFE</color>
+    <color name="cyan_400">#FF22D3EE</color>
+    <color name="cyan_500">#FF06B6D4</color>
+    <color name="cyan_900">#FF083344</color>
+    
+    <color name="teal_50">#FFF0FDFA</color>
+    <color name="teal_100">#FFCCFBF0</color>
+    <color name="teal_400">#FF2DD4BF</color>
+    <color name="teal_500">#FF14B8A6</color>
+    <color name="teal_900">#FF134E4A</color>
+    
+    <color name="gray_50">#FFFAFAFA</color>
+    <color name="gray_100">#FFF5F5F5</color>
+    <color name="gray_200">#FFE5E5E5</color>
+    <color name="gray_300">#FFD4D4D4</color>
+    <color name="gray_400">#FFA3A3A3</color>
+    <color name="gray_500">#FF737373</color>
+    <color name="gray_600">#FF525252</color>
+    <color name="gray_700">#FF404040</color>
+    <color name="gray_800">#FF262626</color>
+    <color name="gray_900">#FF171717</color>
+    
+    <color name="red_100">#FFFEE2E2</color>
+    <color name="red_200">#FFFECACA</color>
+    <color name="red_500">#FFEF4444</color>
+    <color name="red_600">#FFDC2626</color>
+    <color name="red_900">#FF7F1D1D</color>
+    
+    <color name="green_500">#FF22C55E</color>
+    <color name="yellow_500">#FFEAB308</color>
+    <color name="orange_500">#FFF97316</color>
+    
+    <color name="editor_bg">#FF1E1E1E</color>
+    <color name="editor_text">#FFD4D4D4</color>
+    <color name="editor_line">#FF3C3C3C</color>
+    <color name="editor_selection">#FF007ACC</color>
+    <color name="editor_keyword">#FF569CD6</color>
+    <color name="editor_string">#FFCE9178</color>
+    <color name="editor_comment">#FF6A9955</color>
+    <color name="editor_number">#FFB5CEA8</color>
+    <color name="editor_function">#FFDCDCAA</color>
+</resources>
