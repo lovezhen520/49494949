@@ -8,7 +8,7 @@ import androidx.room.TypeConverters
 import com.webide.app.domain.model.Project
 import com.webide.app.domain.model.ProjectFile
 
-@Database(entities = [Project::class, ProjectFile::class], version = 1)
+@Database(entities = [Project::class, ProjectFile::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun projectDao(): ProjectDao
